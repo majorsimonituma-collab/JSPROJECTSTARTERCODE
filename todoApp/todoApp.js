@@ -19,4 +19,12 @@ addBtn.addEventListener('click', function () {
 
 
     document.body.appendChild(display);
-})
+});
+
+function deletebtn () {
+    const del = document.createTextNode("Delete");
+    const DelBtn = document.createElement("button");
+
+    DelBtn.appendChild(del);
+    heading.appendChild(DelBtn);
+};
