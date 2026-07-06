@@ -3,6 +3,9 @@
 const quoteText = document.getElementById("quote");
 const authorText = document.getElementById("author");
 const button = document.getElementById("new-quote");
+const exit = document.getElementById("twitter");
+const container = document.getElementById("details");
+
 
 const quotes = [
     {quote: "The best way to predict the future is to create it.", 
@@ -27,4 +30,13 @@ button.addEventListener("click", () => {
 
     quoteText.textContent = quotes[randomIndex].quote;
     authorText.textContent = `- ${quotes[randomIndex].author}`;
+    
+});
+ 
+function init () {
+  container.textContent = '';
+}
+
+exit.addEventListener("click", () => {
+    init();
 });

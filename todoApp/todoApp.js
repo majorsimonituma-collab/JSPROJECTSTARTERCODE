@@ -4,7 +4,9 @@ const addBtn = document.getElementById("add-button");
 const inputElement = document.getElementById("todo-input");
 const display = document.querySelector(".container")
 
-addBtn.addEventListener('click', function () {
+addBtn.addEventListener('click', function (e) {
+
+    e.preventDefault();
 
     const todoItem = inputElement.value
 
@@ -19,12 +21,20 @@ addBtn.addEventListener('click', function () {
 
 
     document.body.appendChild(display);
-});
 
-function deletebtn () {
-    const del = document.createTextNode("Delete");
     const DelBtn = document.createElement("button");
+    const del = document.createTextNode("Delete");
+    
 
     DelBtn.appendChild(del);
     heading.appendChild(DelBtn);
-};
+
+    DelBtn.addEventListener('click', () => {
+        heading.removeChild(headingText);
+        todolist.removeChild(heading);
+        display.removeChild(todolist);
+
+    });
+
+});
+
