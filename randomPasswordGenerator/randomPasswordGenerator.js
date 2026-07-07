@@ -9,14 +9,10 @@ const UpperInput = document.getElementById('uppercase-input');
 const LowerInput = document.getElementById('lowercase-input');
 const NumInput= document.getElementById('numbers-input');
 const SymInput = document.getElementById('symbols-input');
-const passWord = document.getElementById('password-output')
-
-
-
-
-
-
-
+const uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+const lowercase = "abcdefghijklmnopqrstuvwxyz".split("");
+const numbers = "0123456789".split("");
+const symbols = "!@#$%^&*()".split("");
 
 GenBtn.addEventListener('click', () => {
     generatepassword();
@@ -34,10 +30,46 @@ function generatepassword () {
         alert('Tick atleast one box')
     };
 
-    for (let i = 0; i < Input; i++) {
-        const randomIndex = Math.floor(Math.random() * allCharacters.length);
-        passwordgen += allCharacters[randomIndex];
-    }
+    let characters = [];
+
+        if (UpperInput.checked) {
+            for (let i = 0; i < uppercase.length; i++) {
+                characters.push(uppercase[i]);
+            }
+        }
+
+        if (LowerInput.checked) {
+            for (let i = 0; i < lowercase.length; i++) {
+                characters.push(lowercase[i]);
+            }
+        }
+
+        if (NumInput.checked) {
+            for (let i = 0; i < numbers.length; i++) {
+                characters.push(numbers[i]);
+            }
+        }
+
+        if (SymInput.checked) {
+            for (let i = 0; i < symbols.length; i++) {
+                characters.push(symbols[i]);
+            }
+        }
+
+        let password = "";
+
+        for (let i = 0; i < Number(Input.value); i++) {
+            const randomIndex = Math.floor(Math.random() * characters.length);
+            password += characters[randomIndex];
+        }
+
+        display.textContent = password;
+
+        console.log(password);
 };
 
-// console.log(passwordgen);
+
+
+
+
+
