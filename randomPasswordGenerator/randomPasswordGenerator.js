@@ -9,13 +9,22 @@ const UpperInput = document.getElementById('uppercase-input');
 const LowerInput = document.getElementById('lowercase-input');
 const NumInput= document.getElementById('numbers-input');
 const SymInput = document.getElementById('symbols-input');
+const passWord = document.getElementById('password-output')
 
 
 
 
-const upperCaseval = ['A','Q','S','E','D','T','Y','H','U','I','P','O','L','K','J','M','N','V','C','Z','X','F',''];
+
+
+
 
 GenBtn.addEventListener('click', () => {
+    generatepassword();
+});
+
+function generatepassword () {
+
+
     if (!Input.value) {
         alert('Input value');
 
@@ -25,5 +34,10 @@ GenBtn.addEventListener('click', () => {
         alert('Tick atleast one box')
     };
 
-    // console.log(upperCaseval);
-});
+    for (let i = 0; i < Input; i++) {
+        const randomIndex = Math.floor(Math.random() * allCharacters.length);
+        passwordgen += allCharacters[randomIndex];
+    }
+};
+
+// console.log(passwordgen);
